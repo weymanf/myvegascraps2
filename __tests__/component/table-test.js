@@ -4,7 +4,7 @@ import Table from '../../src/app/component/table';
 
 import renderer from 'react-test-renderer';
 
-describe('App', () => {
+describe('Table', () => {
   it('renders correctly', () => {
     renderer.create(<Table />);
   });

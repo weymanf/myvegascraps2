@@ -4,7 +4,7 @@ import Dice from '../../src/app/component/dice'
 
 import renderer from 'react-test-renderer';
 
-describe('App', () => {
+describe('Dice', () => {
   let dice;
 
   beforeEach(() => {
