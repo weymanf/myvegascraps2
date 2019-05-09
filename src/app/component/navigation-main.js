@@ -1,12 +1,12 @@
 import React, {Component} from 'react';
 import 'react-native';
-import Table from './table';
+import Game from './game';
 import Home from './home';
 import {createStackNavigator, createAppContainer} from 'react-navigation';
 
 const MainNavigator = createStackNavigator({
 	Home: {screen: Home},
-	Table: {screen: Table},
+	Game: {screen: Game},
 });
 
 export default createAppContainer(MainNavigator);

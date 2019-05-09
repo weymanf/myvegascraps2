@@ -27,7 +27,7 @@ describe('Home', () => {
 			button.props.onPress();
 
 			expect(navigateSpy.mock.calls.length).toEqual(1);
-			expect(navigateSpy.mock.calls[0][0]).toEqual('Table');
+			expect(navigateSpy.mock.calls[0][0]).toEqual('Game');
 		})
 	});
 })

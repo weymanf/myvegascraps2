@@ -7,5 +7,9 @@ import renderer from 'react-test-renderer';
 describe('Table', () => {
   it('renders correctly', () => {
     renderer.create(<Table />);
-  });
+	});
+	
+	it('renders a passline', () => {
+			
+	});
 })

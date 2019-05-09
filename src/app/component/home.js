@@ -12,7 +12,7 @@ export default class Home extends Component {
  
 	navigateToCraps = () => {
 		const {navigation: {navigate}} = this.props;
-		navigate('Table');
+		navigate('Game');
 	}
 
 	render() {
