@@ -1,14 +1,21 @@
-import React, {Component} from 'react';
-import {View, Text} from 'react-native'
+import React, { Component } from 'react';
+import { View, Text } from 'react-native'
 
 export default class Dice extends Component {
-    render() {
-        const {value} = this.props;
+	render() {
+		const { value } = this.props;
 
-        return (
-            <View>
-                <Text className="dice-value">{value}</Text>
-            </View>  
-        )
+		return (
+			<View {...{
+				style: {
+					height: 50, width: 50, 
+					backgroundColor: 'white',
+					borderWidth: 1,
+					borderColor: 'black',
+				}
+			}} >
+				<Text className="dice-value">{value}</Text>
+            </ View>
+				)
     }
 }
