@@ -14,6 +14,14 @@ public class MainActivity extends ReactActivity {
 	protected String getMainComponentName() {
 			return "myvegascraps";
 	}
+	
+	@Override
+	public void onConfigurationChanged(Configuration newConfig) {
+		super.onConfigurationChanged(newConfig);
+		Intent intent = new Intent("onConfigurationChanged");
+		intent.putExtra("newConfig", newConfig);
+		this.sendBroadcast(intent);
+	}
 
 	@Override
 	protected ReactActivityDelegate createReactActivityDelegate() {

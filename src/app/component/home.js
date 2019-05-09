@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { View, Text, StyleSheet, Platform, Button } from 'react-native'
+import Orientation from 'react-native-orientation'
 
 const instructions = Platform.select({
 	ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
@@ -9,6 +10,9 @@ const instructions = Platform.select({
 });
 
 export default class Home extends Component {
+	componentDidMount() {
+		Orientation.unlockAllOrientations();
+	}
  
 	navigateToCraps = () => {
 		const {navigation: {navigate}} = this.props;
