@@ -8,7 +8,7 @@ export default class Dice extends Component {
         return (
             <View>
                 <Text className="dice-value">{value}</Text>
-            </View>
+            </View>  
         )
     }
 }

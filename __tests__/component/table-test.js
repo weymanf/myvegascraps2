@@ -1,15 +1,17 @@
-import 'react-native';
 import React from 'react';
 import Table from '../../src/app/component/table';
-
-import renderer from 'react-test-renderer';
+import {shallow} from 'enzyme'
 
 describe('Table', () => {
-  it('renders correctly', () => {
-    renderer.create(<Table />);
+	let table;
+
+	beforeEach(() => {
+		table = shallow(<Table />);
+	})
+
+  it('renders a passline', () => {
 	});
-	
-	it('renders a passline', () => {
-			
+
+	it('it renders a don\'t passline', () => {
 	});
 })

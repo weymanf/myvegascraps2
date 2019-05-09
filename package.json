@@ -18,14 +18,26 @@
     "@babel/core": "^7.4.3",
     "@babel/runtime": "^7.4.3",
     "babel-jest": "^24.7.1",
+    "enzyme": "^3.9.0",
+    "enzyme-adapter-react-16": "^1.12.1",
     "jest": "^24.7.1",
+    "jest-enzyme": "^7.0.2",
+    "jsdom": "^15.0.0",
     "metro-react-native-babel-preset": "^0.53.1",
+    "react-dom": "16",
     "react-test-renderer": "16.8.3"
   },
   "jest": {
     "preset": "react-native",
     "transformIgnorePatterns": [
       "node_modules/(?!((jest-)?react-native|react-navigation|@react-navigation/.*))"
-    ]
+    ],
+    "setupFilesAfterEnv": [
+			"./__tests__/setup.js"
+		],
+		"testPathIgnorePatterns": [
+			"/node_modules/",
+			"/__tests__/setup.js"
+		]
   }
 }

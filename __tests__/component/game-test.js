@@ -1,9 +1,7 @@
-import 'react-native';
 import React from 'react';
 import Game from '../../src/app/component/game';
 import Table from '../../src/app/component/table';
-
-import renderer from 'react-test-renderer';
+import {shallow} from 'enzyme'
 
 jest.mock('react-native-orientation', () => {
 	return {
@@ -15,11 +13,10 @@ describe('Game', () => {
 	let game;
 
 	beforeEach(() => {
-		const render = renderer.create(<Game />);
-		game = render.root;
+		game = shallow(<Game />);
 	})
 
 	it('renders a table', () => {
-		expect(game.findAllByType(Table)).toHaveLength(1);
+		expect(game.find(Table)).toHaveLength(1);
 	});
 })

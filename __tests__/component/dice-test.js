@@ -1,18 +1,15 @@
-import 'react-native';
 import React from 'react';
 import Dice from '../../src/app/component/dice'
-
-import renderer from 'react-test-renderer';
+import {shallow} from 'enzyme'
 
 describe('Dice', () => {
   let dice;
 
   beforeEach(() => {
-    const render = renderer.create(<Dice {...{value: 6}}/>);
-    dice = render.root;
+		dice = shallow(<Dice {...{value: 6}}/>);
   })
 
   it('renders correctly', () => {
-    expect(dice.findByProps({className: 'dice-value'}).props.children).toEqual(6);
+    expect(dice.find('.dice-value').props().children).toEqual(6);
   });
 })
