@@ -8,7 +8,8 @@ export default class Game extends Component {
 		Orientation.lockToLandscape();
 		
 		this.state = {
-			dice: null
+			dice: null,
+			on: false
 		}
 	}
 
@@ -17,8 +18,8 @@ export default class Game extends Component {
 		const deviceHeight = Dimensions.get("window").height;
 
 		return (
-			<View style={{flex: 1}}>
-				<View style={{width: deviceWidth, height: deviceHeight / 10, backgroundColor: 'powderblue'}}>
+			<View style={{flex: 1, flexDirection: 'row'}}>
+				<View style={{width: deviceWidth / 8, backgroundColor: 'powderblue'}}>
 					<Text>The beginning of something beautiful</Text>
 				</View>
 				<Table style={{flex: 2}}></Table>

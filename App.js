@@ -7,7 +7,7 @@
  */
 
 import React, {Component} from 'react';
-import MainNavigator from './src/app/component/navigation-main'
+import MainNavigator from './src/app/component/navigationMain'
 
 export default class App extends Component {
   render() {
