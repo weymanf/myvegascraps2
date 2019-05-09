@@ -1,25 +1,31 @@
-import {Text, Button} from 'react-native';
+import { Text, Button } from 'react-native';
 import React from 'react';
 import Home from '../../src/app/component/home'
-
 import renderer from 'react-test-renderer';
 
+jest.mock('react-native-orientation', () => {
+	return {
+		unlockAllOrientations: jest.fn()
+	}
+})
+
 describe('Home', () => {
-  let home, navigateSpy;
+	let home, navigateSpy;
 
-  beforeEach(() => {
+	beforeEach(() => {
 		navigateSpy = jest.fn()
-    const render = renderer.create(<Home {...{
-			value: 6, navigation: {navigate: navigateSpy}}
-		}/>);
-    home = render.root;
-  })
+		const render = renderer.create(<Home {...{
+			value: 6, navigation: { navigate: navigateSpy }
+		}
+		} />);
+		home = render.root;
+	})
 
-  it('renders the welcome text', () => {
+	it('renders the welcome text', () => {
 		const text = home.findAllByType(Text)[0]
-    expect(text.props.children).toEqual('Welcome to Craps')
+		expect(text.props.children).toEqual('Welcome to Craps')
 	});
-	
+
 	describe('buttons to navigate', () => {
 		it('navigates to the table', () => {
 			const button = home.findByType(Button);
