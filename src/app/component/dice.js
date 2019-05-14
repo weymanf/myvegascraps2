@@ -3,7 +3,7 @@ import { View, Text } from 'react-native'
 
 export default class Dice extends Component {
 	render() {
-		const { value } = this.props;
+		const { value, style = {}} = this.props;
 
 		return (
 			<View {...{
@@ -12,6 +12,7 @@ export default class Dice extends Component {
 					backgroundColor: 'white',
 					borderWidth: 1,
 					borderColor: 'black',
+					...style
 				}
 			}} >
 				<Text className="dice-value">{value}</Text>
