@@ -1,7 +1,7 @@
 # Welcome to My Vegas Craps 2
 
-Alright folks. Let us forget the embarassment of the first one. I have long since forgotten it and it was written in ruby my favorite language at the time.
-This is the new and improved version for IOS and Android. 
+Alright folks. Let us forget the embarassment of the first one. I have long since forgotten it, and that project was written in ruby, my old favorite language at the time.
+This is the new and improved react version for IOS and Android. 
 
 Honestly, I'm just using this as a fun project to learn React Native, and generally start my own project from start to finish again.
 
@@ -11,6 +11,7 @@ I probably will use the basic business logic of everything built here and eventu
 ## Future and Unreachable Goals
 
 1. Lol finish the god damn craps game.
+1.5. Translate it to web. As well using react-native-web. God damn I need to switch the router.
 2. Use dice physics instead of Math.random to generate the probabiliy of rolling dice. 
     - I'll probably combine some sort of physics math combining strength and trajectory
     - using node streams to detect x-y-z motion and have SVGs of dice drawn/animated as it flies through the air. Yolo.
