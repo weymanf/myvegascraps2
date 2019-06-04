@@ -3,6 +3,7 @@ import {Button} from 'react-native'
 import Game from '../../src/app/component/game';
 import Dice from '../../src/app/component/dice';
 import Table from '../../src/app/component/table';
+import PlayerInfo from '../../src/app/component/playerInfo';
 import MathHelper from '../../src/helpers/math';
 import {shallow} from 'enzyme'
 
@@ -37,6 +38,18 @@ describe('Game', () => {
 			game.find(Button).props().onPress()
 
 			expect(mathMock.mock.calls).toHaveLength(2);
+		})
+	});
+
+	describe('renders the player info', () => {
+		let playerInfo;
+
+		beforeEach(() => {
+			playerInfo = game.find(PlayerInfo);
+		});
+
+		it("will render the player's money, name, and id", () => {
+			expect(playerInfo).toHaveLength(1);
 		})
 	});
 })

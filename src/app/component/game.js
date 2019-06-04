@@ -3,15 +3,21 @@ import { View, Text, StyleSheet, Platform, Button, Dimensions } from 'react-nati
 import Orientation from 'react-native-orientation';
 import Table from './table';
 import Dice from './dice';
+import PlayerInfo from './playerInfo';
+import Passline from './passline';
 import MathHelper from '../../helpers/math';
+import uuid from 'uuid';
 
 export default class Game extends Component {
 	constructor(props) {
 		super(props);
+		const guestPlayerId = uuid.v4();
 
 		this.state = {
 			dices: [MathHelper.randomNumberRange(1, 6), MathHelper.randomNumberRange(1, 6)],
-			on: false
+			on: false,
+			players: {[guestPlayerId]: {name: 'Thomas Shelby', money: 10000}},
+			currentPlayer: guestPlayerId
 		}
 	}
 
@@ -24,7 +30,7 @@ export default class Game extends Component {
 	}
 
 	render() {
-		const { dices } = this.state;
+		const {dices, currentPlayer, players} = this.state;
 		const deviceWidth = Dimensions.get("window").width;
 		const deviceHeight = Dimensions.get("window").height;
 
@@ -35,16 +41,19 @@ export default class Game extends Component {
 						onPress: this.rollDice,
 						title: 'Roll Baby'
 					}} />
-					<View style={{flexDirection: 'row', justifyContent: 'center'}}>
+					<View style={{ flexDirection: 'row', justifyContent: 'center' }}>
 						{dices.map((value, i) => {
-							return <Dice {...{ value, key: i }}></Dice>
+							return <Dice {...{ value, key: i}}></Dice>
 						})}
 					</View>
-					<View style={{marginTop: 10}}>
-						<Text style={{textAlign: 'center', fontSize: 16, fontWeight: '600'}}>Player Info</Text>
-					</View>
+					<PlayerInfo {...{
+						player: players[currentPlayer]
+					}}/>
 				</View>
-				<Table style={{ flex: 2 }}></Table>
+				<Table style={{ flex: 2 }}>
+					<Passline></Passline>
+					<View style={{flex: 10}}/> 
+				</Table>
 			</View>
 		)
 	}

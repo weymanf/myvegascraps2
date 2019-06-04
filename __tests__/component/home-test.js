@@ -1,5 +1,5 @@
-import { Text, Button } from 'react-native';
 import React from 'react';
+import { Text, Button } from 'react-native';
 import Home from '../../src/app/component/home'
 import {mount} from 'enzyme';
 
