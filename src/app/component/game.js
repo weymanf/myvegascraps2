@@ -17,7 +17,10 @@ export default class Game extends Component {
 			dices: [MathHelper.randomNumberRange(1, 6), MathHelper.randomNumberRange(1, 6)],
 			on: false,
 			players: {[guestPlayerId]: {name: 'Thomas Shelby', money: 10000}},
-			currentPlayer: guestPlayerId
+			currentPlayer: guestPlayerId,
+			bets: {
+				passline: {}
+			}
 		}
 	}
 
@@ -29,10 +32,24 @@ export default class Game extends Component {
 		this.setState({ dices: [MathHelper.randomNumberRange(1, 6), MathHelper.randomNumberRange(1, 6)] })
 	}
 
+	onBet = (amount, type) => {
+			const {currentPlayer, bets, players} = this.state;
+			const dataForPlayer = players[currentPlayer];
+			const oldBetAmount = bets[type][currentPlayer] ? bets[type][currentPlayer] : 0;
+			this.setState({
+				bets: {
+					...bets, 
+					[type]: {
+						[currentPlayer]: oldBetAmount + amount
+					}
+				},
+				players: {...players, [currentPlayer]: {...dataForPlayer, money: dataForPlayer.money - amount}}
+			});
+	}
+
 	render() {
-		const {dices, currentPlayer, players} = this.state;
+		const {dices, currentPlayer, players, bets} = this.state;
 		const deviceWidth = Dimensions.get("window").width;
-		const deviceHeight = Dimensions.get("window").height;
 
 		return (
 			<View style={{ flex: 1, flexDirection: 'row' }}>
@@ -40,7 +57,7 @@ export default class Game extends Component {
 					<Button {...{
 						onPress: this.rollDice,
 						title: 'Roll Baby'
-					}} />
+					}}/>
 					<View style={{ flexDirection: 'row', justifyContent: 'center' }}>
 						{dices.map((value, i) => {
 							return <Dice {...{ value, key: i}}></Dice>
@@ -51,7 +68,7 @@ export default class Game extends Component {
 					}}/>
 				</View>
 				<Table style={{ flex: 2 }}>
-					<Passline></Passline>
+					<Passline {...{passlineBets: bets.passline, onBet: this.onBet, currentPlayer}} />
 					<View style={{flex: 10}}/> 
 				</Table>
 			</View>

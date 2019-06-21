@@ -1,24 +1,35 @@
 import React, { Component } from 'react'
-import {View, Text} from 'react-native'
+import { View, Text, TouchableHighlight } from 'react-native'
 
 const VIEW_STYLE = {
-	marginLeft: 10, 
-	marginTop: 10, 
-	marginBottom: 10, 
+	// marginLeft: 10,
+	// marginTop: 10,
+	// marginBottom: 10,
 	backgroundColor: 'white',
-	alignItems: 'center', 
+	alignItems: 'center',
 	justifyContent: 'center',
 	flex: 1
 }
 
 export default class Passline extends Component {
 	render() {
+		const { onBet, passlineBets, currentPlayer} = this.props;
 		return (
-			<View style={VIEW_STYLE}>
-			  {'PASSLINE'.split('').map((text) => {
-					return <Text style={{transform: [{rotate: '90deg'}]}}>{text}</Text>
-				})}
-			</View>
-		)
+			<View style={{ flex: 1, marginLeft: 10, marginTop: 10, marginBottom: 10 }}>
+				<TouchableHighlight {...{
+					style: { flex: 1 },
+					onPress: () => { onBet(5, 'passline') }
+				}}>
+					<View style={VIEW_STYLE} className="passline">
+						<Text {...{
+							style: { position: 'absolute', top: 0},
+							className: 'passline-bet'
+						}}>{passlineBets[currentPlayer]}</Text>
+						{'PASSLINE'.split('').map((text, i) => {
+							return <Text key={i} style={{ transform: [{ rotate: '90deg' }] }}>{text}</Text>
+						})}
+					</View>
+				</TouchableHighlight>
+			</View>)
 	}
 }
