@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import 'react-native';
 import Game from './game';
-import Home from './home';
+import {Home} from './home';
 import {createStackNavigator, createAppContainer} from 'react-navigation';
 
 const MainNavigator = createStackNavigator({

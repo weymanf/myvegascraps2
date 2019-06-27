@@ -9,7 +9,7 @@ const instructions = Platform.select({
 		'Shake or press menu button for dev menu',
 });
 
-export default class Home extends Component {
+export class Home extends Component {
 	componentDidMount() {
 		Orientation.unlockAllOrientations();
 	}
