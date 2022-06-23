@@ -27,7 +27,7 @@
     "enzyme-adapter-react-16": "^1.12.1",
     "jest": "^24.7.1",
     "jest-enzyme": "^7.0.2",
-    "jsdom": "^15.0.0",
+    "jsdom": "^16.5.0",
     "metro-react-native-babel-preset": "^0.53.1",
     "react-dom": "16",
     "react-test-renderer": "16.8.3"
